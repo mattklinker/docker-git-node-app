@@ -4,7 +4,8 @@ Docker container for running nodejs applications. The bootstrap contains of thes
 
 1) checkout repository
 2) run `yarn install`
-3) run `npm start`
+3) run `bower install`
+4) run `npm start`
 
 
 # Usage
@@ -12,14 +13,14 @@ Docker container for running nodejs applications. The bootstrap contains of thes
 ## Docker run
 
 ```
-docker run -e "GIT_URL=https://github.com/heroku/node-js-sample" -e "PORT=8080" jakubknejzlik/docker-git-node-app
+docker run -e "GIT_URL=https://github.com/heroku/node-js-sample" -e "PORT=8080" mklinker/docker-git-node-app
 ```
 
 ## Docker-compose
 
 ```
   hello-world:
-    image: jakubknejzlik/docker-git-node-app
+    image: mklinker/docker-git-node-app
     container_name: hello-world
     expose:
       - 8080
@@ -40,7 +41,7 @@ services:
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock:ro
   hello-world:
-    image: jakubknejzlik/docker-git-node-app
+    image: mklinker/docker-git-node-app
     container_name: hello-world
     expose:
       - 3001
@@ -58,3 +59,4 @@ services:
 * `GIT_URL` - repository to pull your source code from (example: `https://github.com/heroku/node-js-sample`)
 * `PORT` - port for running your service (default: `30000`)
 * `YARN_INSTALL` - use `yarn` to install modules (default: `0`)
+* `BOWER_INSTALL` - use `bower` to install modules (default: `0`)
