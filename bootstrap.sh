@@ -14,4 +14,8 @@ else
   npm install --production --silent
 fi
 
+if [ "$BOWER_INSTALL" = "1" ]; then
+  bower install --production --silent
+fi
+
 npm run $NPM_SCRIPT
